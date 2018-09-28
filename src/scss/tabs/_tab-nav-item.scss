@@ -1,0 +1,20 @@
+$block: 'tab-nav-item';
+
+.#{$block} {
+	padding: map-get($space, default);
+	cursor: pointer;
+	position: relative;
+	top: 1px;
+	border: 1px solid transparent;
+	&.active {
+		border-color: $color-text;
+		border-bottom-color: $color-white;
+		border-radius: $border-radius $border-radius 0 0;
+	}
+
+	&--location {
+		padding-left: 0;
+		cursor: auto;
+		font-weight: $font-weight-bold;
+	}
+}

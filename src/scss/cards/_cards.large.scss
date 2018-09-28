@@ -1,0 +1,9 @@
+$block: 'cards';
+
+.#{$block} {
+	border-radius: $border-radius;
+	&__nav,
+	&__detail {
+		flex-wrap: nowrap;
+	}
+}

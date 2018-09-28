@@ -1,0 +1,37 @@
+$block: 'card';
+
+.#{$block} {
+	background: $color-white;
+	padding: map-get($space, default) map-get($space, 2);
+	text-align: center;
+	cursor: pointer;
+	border-radius: $border-radius;
+	border: 1px solid transparent;
+	position: relative;
+
+	&:focus,
+	&.active {
+		z-index: 1;
+		border-color: $color-cloudy;
+	}
+
+	&__time {
+		font-size: map-get($font-size, sm);
+	}
+
+	&__icon {
+		font-size: map-get($font-size, xl);
+	}
+
+	&__temp {
+		margin-top: map-get($space, 1);
+		.temp-high,
+		.temp-low {
+			margin: 0 2px;
+		}
+
+		.temp-low {
+			color: $color-cloudy-dark;
+		}
+	}
+}

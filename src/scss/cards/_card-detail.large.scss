@@ -1,0 +1,8 @@
+$block: 'card-detail';
+
+.#{$block} {
+	&__detail {
+		border-color: transparent;
+		transition: border-color 500ms ease-in-out;
+	}
+}

@@ -1,0 +1,31 @@
+$block: 'feature';
+
+.#{$block} {
+	text-align: center;
+	padding: map-get($space, 3) map-get($space, default);
+	background: radial-gradient(circle, $color-primary, $color-secondary);
+	color: $color-white;
+
+	&__location {
+		font-size: map-get($font-size, lg);
+		margin-bottom: map-get($space, 1);
+	}
+
+	&__summary {
+		font-size: map-get($font-size, md);
+	}
+
+	&__temperature {
+		font-size: map-get($font-size, xl);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: map-get($space, 2);
+		font-weight: $font-weight-light;
+	}
+
+	&__icon {
+		margin-right: map-get($space, 1);
+		font-size: map-get($font-size, xxl);
+	}
+}

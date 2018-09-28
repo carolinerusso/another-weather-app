@@ -1,0 +1,43 @@
+$block: 'form';
+
+.#{$block} {
+	padding: map-get($space, default);
+	display: flex;
+	justify-content: center;
+	max-width: $max-width-small;
+	margin: auto;
+	font-family: $font-base;
+
+	&__submit,
+	&__zip {
+		height: 40px;
+		line-height: 40px;
+		font-size: map-get($font-size, default);
+		font-family: $font-base;
+		padding: map-get($space, 1)  map-get($space, 2);
+		position: relative;
+		&:focus {
+			z-index: 1;
+		}
+	}
+
+	&__submit {
+		flex-basis: 25%;
+		appearance: none;
+		background: $color-sunny;
+		color: $color-text;
+		height: auto;
+		border: 1px solid $color-sunny;
+		border-left: 0;
+		border-radius: 0 $border-radius $border-radius 0;
+		cursor: pointer;
+	}
+
+	&__zip {
+		flex-basis: 75%;
+		border-radius: $border-radius 0 0 $border-radius;
+		border: 1px solid $color-sunny;
+		display: block;
+		color: $color-text;
+	}
+}

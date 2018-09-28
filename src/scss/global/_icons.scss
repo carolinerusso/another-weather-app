@@ -1,0 +1,52 @@
+@font-face {
+  font-family: '#{$font-icons}';
+  src:
+    url('#{$font-icons-path}/#{$font-icons}.ttf') format('truetype'),
+    url('#{$font-icons-path}/#{$font-icons}.woff') format('woff'),
+    url('#{$font-icons-path}/#{$font-icons}.svg?#usgicon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$icons: (
+	thunderstorm: "\e900",
+	hail: "\e901",
+	partly-cloudy-night: "\e902",
+	partly-cloudy-day: "\e903",
+	cloudy: "\e904",
+	fog: "\e905",
+	snow: "\e906",
+	sleet: "\e907",
+	rain: "\e908",
+	clear-night: "\e909",
+	clear-day: "\e90a",
+	wind: "\e90b",
+	error: "\e90c"
+);
+
+@each $icon-name, $icon-content in $icons {
+	.icon-#{$icon-name} {
+		font-family: $font-icons !important;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+
+		// Better Font Rendering
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		&:before {
+            content: $icon-content;
+   		}
+	}
+}
+
+.icon {
+	@each $forecast-type, $forecast-color in $weather-colors {
+		&--#{$forecast-type} {
+			color: $forecast-color;
+		}
+	}
+}

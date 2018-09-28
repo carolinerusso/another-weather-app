@@ -1,0 +1,43 @@
+$block: 'card-detail';
+
+.#{$block} {
+	//don't show unless we have an active state
+	display: none;
+	&.active {
+		display: block;
+		width: 100%;
+		padding: map-get($space, default);
+	}
+
+	&__detail {
+		color: $color-cloudy-dark;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: map-get($space, default);
+		padding-top: map-get($space, default);
+		border-top: 1px solid $color-cloudy-light;
+		transition: border-color 500ms ease-in-out;
+	}
+
+	&__time,
+	&__summary {
+		font-size: map-get($font-size, md);
+		color: $color-cloudy-dark;
+	}
+
+	&__location {
+		font-size: map-get($font-size, lg);
+	}
+
+	&__temp {
+		font-size: map-get($font-size, xl);
+		display: flex;
+		align-items: center;
+		font-weight: $font-weight-light;
+		span {
+			margin-right: map-get($space, 1);
+			font-size: 70px;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+$block: 'msg';
+
+.#{$block} {
+	max-width: $max-width-small;
+	margin: auto;
+	text-align: center;
+	font-size: map-get($font-size, lg);
+	padding: map-get($space, 3) map-get($space, default);
+
+	&__icon {
+		display: block;
+		margin: map-get($space, default) auto;
+		text-align: center;
+		font-size: map-get($font-size, xxxl);
+	}
+
+	//create the dot dot dot effect
+	&--loading {
+		@keyframes flick {
+			0% { opacity: 0; }
+			50% { opacity: 1; }
+			100% { opacity: 0; }
+		}
+		span {
+		    animation: flick 1s linear infinite;
+		    &:nth-child(1){
+		    	animation-delay: 100ms;
+		    }
+		    &:nth-child(2) {
+		    	animation-delay: 200ms;
+		    }
+		    &:nth-child(3) {
+		    	animation-delay: 300ms;
+		    }
+		}
+	}
+}

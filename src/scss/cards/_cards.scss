@@ -1,0 +1,17 @@
+$block: 'cards';
+
+.#{$block} {
+	margin: map-get($space, default) auto;
+	max-width: $max-width;
+	background: white;
+	border-radius: 0;
+	padding: map-get($space, default);
+
+	&__nav,
+	&__detail {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+}
