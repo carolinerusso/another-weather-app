@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import {Form} from './Form';
 import * as DateFunctions from './Utility/DateFunctions';
-// import {Feature} from './Feature/Feature';
 import {Cards} from './Cards/Cards.jsx';
-// import {Tabs} from './Tabs/Tabs';
-
-const ENDPOINT = 'https://1ljygy7hv5.execute-api.us-east-2.amazonaws.com/production/';
 
 class Weather extends Component {
 	
@@ -28,7 +24,7 @@ class Weather extends Component {
 		}, () => {
 
 		//build the correct endpoint for AWS
-		let url = ENDPOINT + 'zip/' + this.state.zip;
+		let url = this.props.endpoint + 'zip/' + this.state.zip;
 		
 		//perform the fetch and store the results
 		fetch(url)
@@ -46,74 +42,22 @@ class Weather extends Component {
 				}
 			})
 			.then(json => {
+				//pull the data from the AWS call
+				this.setState({
+					geolocation: json,
+					location: json.postalCodes[0].placeName + ', ' + json.postalCodes[0].adminCode1,
+					lat: json.postalCodes[0].lat,
+					lng: json.postalCodes[0].lng
+				});
+
+				// make a 2nd request and return a promise
+				let forecastUrl = this.props.endpoint + 'coord/' + this.state.lat + ',' + this.state.lng;
 				
-				if(json.status == "OK"){
-
-					let data = json.results[0];
-					
-					//only grab the values we really want: City, STATE
-					let results = data.address_components.filter((obj) => obj.types.includes('political') && ! obj.types.includes('administrative_area_level_2') && ! obj.types.includes('country'));
-
-					let map = results.map(i => i.short_name);
-
-					let location = map.join(', ');
-
-					this.setState({
-						geolocation: data,
-						location: location,
-						lat: data.geometry.location.lat,
-						lng: data.geometry.location.lng
-					});
-
-					// make a 2nd request and return a promise
-					let forecastUrl = ENDPOINT + 'coord/' + this.state.lat + ',' + this.state.lng;
-					
-					return fetch(forecastUrl);
+				return fetch(forecastUrl);
 				
-				} else {	
-
-					this.setState({
-						fetching: false,
-						error: json.status
-					});
-
-					try {
-						if(json.status){
-
-							let message = '';
-							switch (json.status) {
-							    case 'ZERO_RESULTS':
-							        message = 'No results found for that zip code. Did you enter it correctly?';
-							        break;
-							    default: 
-							        message = 'An unknown error occurred. Try again later. Error code: ' + json.status;
-							        break;
-							}
-								
-							this.setState({
-								fetching: false,
-								error: message
-							});
-							
-							throw new Error(message);
-						
-						} else if(json.error){
-
-							this.setState({
-								fetching: false,
-								error: json.code + ': ' + json.error
-							});
-
-							throw new Error(json.code + ': ' + json.error);
-						}
-					} catch(err) {
-						throw new Error(err);
-					}
-				}
 			})
 			.then(response => response.json())
 			.then(json => {
-
 				//store the weather details from Dark Sky in state
 				let data = json;
 
@@ -121,6 +65,7 @@ class Weather extends Component {
 					weather: data,
 					fetching: false
 				});
+				
 			})
 			.catch(err => {				
 				console.error(err);
@@ -146,9 +91,7 @@ class Weather extends Component {
 								<p>{this.state.error}</p>
 							</div>
 						) : ([
-							//<Feature key={0} location={this.state.location} weather={this.state.weather}/>,
 							<Cards key={1} zip={this.state.zip} location={this.state.location} forecast={this.state.weather.daily} timeFormat="ddd" />,
-							//<Tabs key={2} zip={this.state.zip} location={this.state.location} weather={this.state.weather} />
 						])}
 					</div>
 
