@@ -1,0 +1,416 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900|Rubik:300,400,500,700,900|Titillium+Web:200,300,400,600,700,900);
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: "weathericons";
+  src: url(fonts/weathericons.ttf) format("truetype"), url(fonts/weathericons.woff) format("woff"), url(fonts/weathericons.svg?#usgicon) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.icon-thunderstorm {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-thunderstorm:before {
+    content: "\E900"; }
+
+.icon-hail {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-hail:before {
+    content: "\E901"; }
+
+.icon-partly-cloudy-night {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-partly-cloudy-night:before {
+    content: "\E902"; }
+
+.icon-partly-cloudy-day {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-partly-cloudy-day:before {
+    content: "\E903"; }
+
+.icon-cloudy {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-cloudy:before {
+    content: "\E904"; }
+
+.icon-fog {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-fog:before {
+    content: "\E905"; }
+
+.icon-snow {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-snow:before {
+    content: "\E906"; }
+
+.icon-sleet {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-sleet:before {
+    content: "\E907"; }
+
+.icon-rain {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-rain:before {
+    content: "\E908"; }
+
+.icon-clear-night {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-clear-night:before {
+    content: "\E909"; }
+
+.icon-clear-day {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-clear-day:before {
+    content: "\E90A"; }
+
+.icon-wind {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-wind:before {
+    content: "\E90B"; }
+
+.icon-error {
+  font-family: "weathericons" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .icon-error:before {
+    content: "\E90C"; }
+
+.icon--thunderstorm {
+  color: #d9d9d9; }
+
+.icon--hail {
+  color: #d9d9d9; }
+
+.icon--partly-cloudy-night {
+  color: #d9d9d9; }
+
+.icon--partly-cloudy-day {
+  color: #d9d9d9; }
+
+.icon--cloudy {
+  color: #d9d9d9; }
+
+.icon--fog {
+  color: #d9d9d9; }
+
+.icon--snow {
+  color: #d9d9d9; }
+
+.icon--sleet {
+  color: #62c6dd; }
+
+.icon--rain {
+  color: #62c6dd; }
+
+.icon--clear-night {
+  color: #fee268; }
+
+.icon--clear-day {
+  color: #fee268; }
+
+.icon--wind {
+  color: #d9d9d9; }
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #333; }
+
+html {
+  background: aliceblue; }
+
+.form {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  max-width: 420px;
+  margin: auto;
+  font-family: "Nunito", sans-serif; }
+  .form__submit, .form__zip {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    padding: 5px 10px;
+    position: relative; }
+    .form__submit:focus, .form__zip:focus {
+      z-index: 1; }
+  .form__submit {
+    flex-basis: 25%;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: #fee268;
+    color: #333;
+    height: auto;
+    border: 1px solid #fee268;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer; }
+  .form__zip {
+    flex-basis: 75%;
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #fee268;
+    display: block;
+    color: #333; }
+
+.msg {
+  max-width: 420px;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+  padding: 40px 20px; }
+  .msg__icon {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 80px; }
+
+@-webkit-keyframes flick {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes flick {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+  .msg--loading span {
+    -webkit-animation: flick 1s linear infinite;
+            animation: flick 1s linear infinite; }
+    .msg--loading span:nth-child(1) {
+      -webkit-animation-delay: 100ms;
+              animation-delay: 100ms; }
+    .msg--loading span:nth-child(2) {
+      -webkit-animation-delay: 200ms;
+              animation-delay: 200ms; }
+    .msg--loading span:nth-child(3) {
+      -webkit-animation-delay: 300ms;
+              animation-delay: 300ms; }
+
+.card {
+  background: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  position: relative; }
+  .card:focus, .card.active {
+    z-index: 1;
+    border-color: #d9d9d9; }
+  .card__time {
+    font-size: 13px; }
+  .card__icon {
+    font-size: 40px; }
+  .card__temp {
+    margin-top: 5px; }
+    .card__temp .temp-high,
+    .card__temp .temp-low {
+      margin: 0 2px; }
+    .card__temp .temp-low {
+      color: #a6a6a6; }
+
+.cards {
+  margin: 20px auto;
+  max-width: 720px;
+  background: white;
+  border-radius: 0;
+  padding: 20px; }
+  .cards__nav, .cards__detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+
+.card-detail {
+  display: none; }
+  .card-detail.active {
+    display: block;
+    width: 100%;
+    padding: 20px; }
+  .card-detail__detail {
+    color: #a6a6a6;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ededed;
+    transition: border-color 500ms ease-in-out; }
+  .card-detail__time, .card-detail__summary {
+    font-size: 18px;
+    color: #a6a6a6; }
+  .card-detail__location {
+    font-size: 24px; }
+  .card-detail__temp {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 200; }
+    .card-detail__temp span {
+      margin-right: 5px;
+      font-size: 70px; }
+
+@media (min-width: 720px) {
+  .cards {
+    border-radius: 3px; }
+    .cards__nav, .cards__detail {
+      flex-wrap: nowrap; }
+  .card-detail__detail {
+    border-color: transparent;
+    transition: border-color 500ms ease-in-out; } }
+
